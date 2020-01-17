@@ -10,6 +10,11 @@ __Note:__ Please go through the below steps and match with commits to understand
 #### How to run?
 > npm start
 
+#### Commit Details
+1. initial commit
+2. create a store and reducer with msg as initialstate
+3. created constants and imported those in action file.functions to dispatch those actions.event handlers in component.
+
 #### Steps to configure Redux in React application:
 1. `npm i react-redux`
 2. create a reducer(reducer.js) with initialstate
