@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-        Redux Explained: <br/><br/>
+        <br/>Redux Explained: <br/><br/>
         <table>
           <tr>
             <td>
