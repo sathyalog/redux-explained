@@ -1,5 +1,16 @@
 This is a very tiny project and its goal is to explain redux and its flow in a simple manner.
 
+Concept (or) Usecase - We will have only 1 input element(price) along with quantity dropdown. On entering price or changing the quantity should update total value dynamically. For this we were using redux.
+On Blur event, we should take price and multiply with quantity and display total.
+
+Steps:
+1. npm i react-redux
+2. create a reducer(reducer.js) with initialstate
+3. create a store(store.js) using createStore
+3. import store in App.js
+4. import Provider in App.js
+5. `<Provider store={store}> as a parent element for entire application`
+
 ---------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

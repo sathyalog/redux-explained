@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
-
+//Redux
+import {Provider} from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <div className="App">
-      Redux Explained
-    </div>
+    <Provider store={store}>
+      <Fragment>
+        Redux Explained: <br/><br/>
+        <table>
+          <tr>
+            <td>
+              <label for="price">Price</label>
+              <input type="text" name="price"/>
+            </td>
+            <td>
+              <label for="quantity">Quantity</label>
+              <select>
+                <option val="1">1</option>
+                <option val="2">2</option>
+                <option val="3">3</option>
+              </select>
+            </td>
+            <td>
+              Total: 0
+            </td>
+          </tr>
+        </table>
+      </Fragment>
+    </Provider>
   );
 }
 
