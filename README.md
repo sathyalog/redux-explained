@@ -1,10 +1,16 @@
+## Purpose of this Repo:
 This is a very tiny project and its goal is to explain redux and its flow in a simple manner.
 
-Concept (or) Usecase - We will have a price input field along with quantity dropdown on our page. On entering price or changing the quantity should update total value dynamically. For this we will use redux.
+__Concept (or) Usecase__ - We will have a __price__ input field along with __quantity__ dropdown on our page. On entering price or changing the quantity should update total value dynamically. To achieve this functionality we will be using redux here.
 
-On Blur event, we should take price and multiply with quantity and display total.
+__Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly.
 
-Steps:
+__Note:__ Please go through the below steps and match with commits to understand the flow of redux.
+
+#### How to run?
+> npm start
+
+#### Steps to configure Redux in React application:
 1. `npm i react-redux`
 2. create a reducer(reducer.js) with initialstate
 3. create a store(store.js) using createStore and pass reducer in it
@@ -12,6 +18,13 @@ Steps:
 4. import Provider in App.js
 5. `<Provider store={store}>` as a parent element for entire application.
 Now you can see on your redux-devtools-extension where state column is displayed with a message(msg) like shown in screenshot.
+6. create a constants file and export action-type names
+7. create an action file by importing action-type names and create a function in it to dispatch action with payload.
+8. write event handlers for price, quantity dropdowns in component file(app.js).
+
+
+#### Points to Remember
+1. Redux is a __single source of truth__. Which means it can only have 1 store and 1 reducer(state in it). No matter how many reducers you create, you have to combine those reducers and keep it as 1(rootReducer). As explained, we will have only one state in rootReducer, where all components has to subscribe and listen to it. 
 
 ---------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
