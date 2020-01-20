@@ -3,7 +3,9 @@ This is a very tiny project and its goal is to explain redux and its flow in a s
 
 __Concept (or) Usecase__ - We will have a __price__ input field along with __quantity__ dropdown on our page. On entering price or changing the quantity should update total value dynamically. To achieve this functionality we will be using redux here.
 
-__Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly.
+__Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly. Refer screenshot.
+
+
 
 __Note:__ Please go through the below steps and match with commits to understand the flow of redux.
 

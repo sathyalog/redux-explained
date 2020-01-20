@@ -3,15 +3,6 @@ import {setPrice, setQuantity, setTotal} from './action';
 import {connect} from 'react-redux';
 
 export class Checkout extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            price:'',
-            quantity:'',
-            total: 0
-        }
-    }
 
     inputHandler = (e) => {
         const {dispatch} = this.props;
