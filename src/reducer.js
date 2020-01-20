@@ -1,9 +1,27 @@
-const initialState = {
-    'msg':'Hello! Welcome to redux'
-};
+import {combineReducers} from 'redux';
+import * as types from './constants';
 
-function rootReducer(state = initialState, action) {
-    return state
+function setPrice(state = 0, action) {
+    switch(action.type) {
+        case types.SET_PRICE:
+            return action.value;
+        default: 
+            return state;
+    }
 }
 
-export default rootReducer
+function setQuantity(state = 1, action) {
+    switch(action.type) {
+        case types.SET_QUANTIY:
+            return action.value;
+        default:
+            return state;
+    }
+}
+
+const reducer = combineReducers({
+    setPrice,
+    setQuantity
+})
+
+export default reducer

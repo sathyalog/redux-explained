@@ -1,12 +1,16 @@
-import {SET_PRICE, SET_QUANTIY} from './constants';
+import * as types from './constants';
 
 
-export const setPrice = (msg, value) => dispatch => {
-    dispatch({
-        type: SET_PRICE,
-        payload: {
-            msg,
-            value
-        }
-    });
+export const setPrice = (value) => {
+    return {
+        type: types.SET_PRICE,
+        value 
+    }
+}
+
+export const setQuantity = (value) => {
+    return {
+        type: types.SET_QUANTIY,
+        value 
+    }
 }

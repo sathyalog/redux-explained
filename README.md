@@ -14,6 +14,8 @@ __Note:__ Please go through the below steps and match with commits to understand
 1. initial commit
 2. create a store and reducer with msg as initialstate
 3. created constants and imported those in action file.functions to dispatch those actions.event handlers in component.
+4. Moved App.js logic(handlers, html) to checkout.js(stateful component). Enabled state and updating state on event changes.
+5. setprice and setquantity handlers(in components), action & reducer logic added.
 
 #### Steps to configure Redux in React application:
 1. `npm i react-redux`
@@ -26,10 +28,15 @@ Now you can see on your redux-devtools-extension where state column is displayed
 6. create a constants file and export action-type names
 7. create an action file by importing action-type names and create a function in it to dispatch action with payload.
 8. write event handlers for price, quantity dropdowns in component file(app.js).
-
+9. Created a class component(stateful) and named it as checkout.js. Moved all app.js logic to checkout.js and updating state on event changes.
+10. Using connect method, we will pass mapStateToPros for the checkout component..which internally maps store state to the component using connect method.
+10.On input or dropdown change, call handler and dispatch an action with value. Action will pick value and pass it as payload value for respective action type.
+11. Reducer will update the store holding action type with value(payload) passed from action.
+12. In components(checkout), you will receive the price, quantity from store as a props. You can now directly display the values on component from store.
 
 #### Points to Remember
 1. Redux is a __single source of truth__. Which means it can only have 1 store and 1 reducer(state in it). No matter how many reducers you create, you have to combine those reducers and keep it as 1(rootReducer). As explained, we will have only one state in rootReducer, where all components has to subscribe and listen to it. 
+2. mapStateToProps - will help to pass the store values to your component as props.
 
 ---------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
