@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {setPrice, setQuantity} from './action';
+import {setPrice, setQuantity, setTotal} from './action';
 import {connect} from 'react-redux';
 
 export class Checkout extends Component {
@@ -14,28 +14,35 @@ export class Checkout extends Component {
     }
 
     inputHandler = (e) => {
-        const {price, dispatch} = this.props;
+        const {dispatch} = this.props;
         e.preventDefault();
         dispatch(setPrice(e.target.value));
-        //console.log(price);
+        this.updateTotal();
     }
 
-    handleChange = (e) => {
-        const {price, dispatch} = this.props;
+    handleChange =async (e) => {
+        const {dispatch} = this.props;
         e.preventDefault();
-        dispatch(setPrice(e.target.value));
-        //console.log(price);
+        await dispatch(setPrice(e.target.value));
+        this.updateTotal();
     }
     
-    selectHandler = (e) => {
-        const { quantity, dispatch} = this.props;
+    selectHandler =async (e) => {
+        const { dispatch} = this.props;
         e.preventDefault();
-        dispatch(setQuantity(e.target.value));
+        await dispatch(setQuantity(e.target.value));
+        this.updateTotal();
+    }
+
+    updateTotal = () => {
+        const { price, quantity, dispatch } = this.props;
+        const total = price * quantity;
+        dispatch(setTotal(total));
     }
     
     render() {
-        const {price, quantity} = this.props;
-        const total = price * quantity;
+        // get from store
+        const {total} = this.props;
         return (
             <Fragment>
                 <table>
@@ -53,9 +60,13 @@ export class Checkout extends Component {
                             <option val="3">3</option>
                             </select>
                         </td>
-                        <td>
-                            Total: {total ? total : 0}
-                        </td>
+                        {
+                            total && (
+                                <td>
+                                    Total: {total ? total : 0}
+                                </td>
+                            )
+                        }
                         </tr>
                     </tbody>
                     </table>
@@ -68,7 +79,7 @@ export class Checkout extends Component {
 const mapStateToProps = (state) => ({
     price: state.setPrice,
     quantity: state.setQuantity,
-    total: state.total
+    total: state.setTotal
 });
 
 export default connect(mapStateToProps)(Checkout)

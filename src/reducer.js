@@ -19,9 +19,19 @@ function setQuantity(state = 1, action) {
     }
 }
 
+function setTotal(state = 0, action) {
+    switch(action.type) {
+        case types.SET_TOTAL:
+            return action.value;
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
     setPrice,
-    setQuantity
+    setQuantity,
+    setTotal
 })
 
 export default reducer

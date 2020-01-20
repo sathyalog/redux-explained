@@ -14,3 +14,10 @@ export const setQuantity = (value) => {
         value 
     }
 }
+
+export const setTotal = (value) => {
+    return {
+        type: types.SET_TOTAL,
+        value 
+    }
+}

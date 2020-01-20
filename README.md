@@ -16,6 +16,7 @@ __Note:__ Please go through the below steps and match with commits to understand
 3. created constants and imported those in action file.functions to dispatch those actions.event handlers in component.
 4. Moved App.js logic(handlers, html) to checkout.js(stateful component). Enabled state and updating state on event changes.
 5. setprice and setquantity handlers(in components), action & reducer logic added.
+6. update total value in store and render it in the checkout component. 
 
 #### Steps to configure Redux in React application:
 1. `npm i react-redux`
