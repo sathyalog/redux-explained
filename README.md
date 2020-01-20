@@ -5,7 +5,7 @@ __Concept (or) Usecase__ - We will have a __price__ input field along with __qua
 
 __Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly. Refer screenshot.
 
-
+![screenshot](/screenshots/2.png)
 
 __Note:__ Please go through the below steps and match with commits to understand the flow of redux.
 
