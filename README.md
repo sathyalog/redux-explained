@@ -1,11 +1,15 @@
 ## Purpose of this Repo:
-This is a very tiny project and its goal is to explain redux and its flow in a simple manner.
+This is a very tiny project created for beginners and its goal is to explain redux and its flow in a simple manner.
 
 __Concept (or) Usecase__ - We will have a __price__ input field along with __quantity__ dropdown on our page. On entering price or changing the quantity should update total value dynamically. To achieve this functionality we will be using redux here.
 
 __Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly. Refer screenshot.
 
 ![screenshot](/screenshots/2.png)
+
+__Goal2:__ On click of a button(Get Products), fetch list of products from API and display on screen.
+
+![screenshot](/screenshots/Final.png)
 
 __Note:__ Please go through the below steps and match with commits to understand the flow of redux.
 
@@ -54,26 +58,26 @@ Now you can see on your redux-devtools-extension where state column is displayed
 1. Redux is a __single source of truth__. Which means it can only have 1 store and 1 reducer(state in it). No matter how many reducers you create, you have to combine those reducers and keep it as 1(rootReducer). As explained, we will have only one state in rootReducer, where all components has to subscribe and listen to it. 
 2. mapStateToProps - will help to pass the store values to your component as props.
 
-    If mapStateToProps argument is specified, the new component will subscribe to Redux store updates. This means that any time the store is updated, mapStateToProps will be called. The results of mapStateToProps must be a plain object, which will be merged into the component’s props.
+    - If mapStateToProps argument is specified, the new component will subscribe to Redux store updates. This means that any time the store is updated, mapStateToProps will be called. The results of mapStateToProps must be a plain object, which will be merged into the component’s props.
 
-    With mapDispatchToProps every action creator wrapped into a dispatch call so they may be invoked directly, will be merged into the component’s props.
+    - With mapDispatchToProps every action creator wrapped into a dispatch call so they may be invoked directly, will be merged into the component’s props.
 
-3. Middleware - Redux middleware solves different problems than Express or Koa middleware, but in a conceptually similar way. It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer. People use Redux middleware for logging, crash reporting, talking to an asynchronous API, routing, and more.
+3. Middleware - Redux middleware solves different problems than Express or Koa middleware, but in a conceptually similar way. It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer. People use Redux middleware for *logging, crash reporting, talking to an asynchronous API, routing,* and more.
 4. Pure Functions(Reducer) - 
-    Must return the same output on same input. 
-    Must not have side effects(network call, write to file, logging to screen)
-    Should not mutate external state
+    - Must return the same output on same input. 
+    - Must not have side effects(network call, write to file, logging to screen)
+    - Should not mutate external state
 5. Why we need redux saga and why we cannot handle side effects with redux? Redux is synchronous and cannot perform async calls natively. Hence we use redux saga to handle API calls asynchronously and also to handle side effects. What happens if you use native redux to handle API calls, then lets say you click on button to fetch details for different products parallely, you might end up fetching the latest clicked product ignoring first 4 calls. In these cases, we definitely need to wait when ever we perform an action for API calls before you make another API call.
-6. Redux Saga - redux-saga is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+6. Redux Saga - redux-saga is a library that aims to **make application side effects** (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
-6.1 put(channel, action)
+&nbsp;&nbsp;&nbsp;6.1 __put(channel, action)__
 
 Creates an Effect description that instructs the middleware to put an action into the provided channel.
 
     channel: Channel - a Channel Object.
     action: Object - see Redux dispatch documentation for complete info 
 
-6.2 takeLatest(pattern, saga, ...args)
+&nbsp;&nbsp;&nbsp;6.2 __takeLatest(pattern, saga, ...args)__
 
 Forks a saga on each action dispatched to the Store that matches pattern. And automatically cancels any previous saga task started previously if it's still running.
 
@@ -85,7 +89,7 @@ Each time an action is dispatched to the store. And if this action matches patte
 
     args: Array<any> - arguments to be passed to the started task. takeLatest will add the incoming action to the argument list (i.e. the action will be the last argument provided to saga)
 
-6.3 all([...effects]) - parallel effects
+&nbsp;&nbsp;&nbsp;6.3 __all([...effects])__ - parallel effects
 
 Creates an Effect description that instructs the middleware to run multiple Effects in parallel and wait for all of them to complete. It's quite the corresponding API to standard Promise#all.
 

@@ -10,7 +10,9 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-        <br/>Redux Explained: <br/><br/>
+          <br/>
+          <h2>Redux Explained</h2> 
+          <br/><br/>
           <Checkout/>
           <Products/>
       </Fragment>

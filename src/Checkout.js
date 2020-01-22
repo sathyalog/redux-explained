@@ -40,27 +40,28 @@ class Checkout extends Component {
                     <tbody>
                         <tr>
                         <td>
-                            <label htmlFor="price">Price</label>
-                            <input type="number" name="price" onBlur={(e) => this.inputHandler(e)} onChange={(e) => this.handleChange(e)}/>
+                            <label htmlFor="price">Price: </label>
+                            <input type="number" name="price" className="form-control" onBlur={(e) => this.inputHandler(e)} onChange={(e) => this.handleChange(e)}/>
                         </td>
                         <td>
                             <label htmlFor="quantity">Quantity</label>
-                            <select onChange={e => this.selectHandler(e)}>
+                            <select className="form-control" onChange={e => this.selectHandler(e)}>
                             <option val="1">1</option>
                             <option val="2">2</option>
                             <option val="3">3</option>
                             </select>
                         </td>
-                        {
-                            total && (
-                                <td>
-                                    Total: {total ? total : 0}
-                                </td>
-                            )
-                        }
+                        
                         </tr>
                     </tbody>
-                    </table>
+                    </table><br/>
+                    {
+                            total && (
+                                <div>
+                                    <b>Total:</b> {total ? total : 0}
+                                </div>
+                            )
+                        }
             </Fragment>
         )
     }
