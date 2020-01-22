@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import { getProducts } from './action';
 
-
+const styles = {
+    cursor: 'pointer'
+}
 class Products extends Component {
     
     productHandler = (e) => {
@@ -10,11 +12,13 @@ class Products extends Component {
         dispatch(getProducts());
     }
 
+    
     render() {
         const {products} = this.props;
+        
         return (
             <div><br/>
-                <button className="btn btn-primary"onClick={(e) => this.productHandler(e)}>Get Products</button><br/><br/>
+                <button className="btn btn-primary" style={styles} onClick={(e) => this.productHandler(e)}>Get Products</button><br/><br/>
                 
                 <div className="table-responsive">
                     <table className="table">
@@ -50,7 +54,7 @@ class Products extends Component {
     }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
     products: state.getProducts.products,
 });
 
