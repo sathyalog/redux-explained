@@ -3,11 +3,12 @@ This is a very tiny project created for beginners and its goal is to explain red
 
 __Concept (or) Usecase__ - We will have a __price__ input field along with __quantity__ dropdown on our page. On entering price or changing the quantity should update total value dynamically. To achieve this functionality we will be using redux here.
 
-__Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly. Refer screenshot.
+__Goal:__ On Blur event, we should take price and multiply with quantity and display total accordingly. 
+Refer screenshot.
 
 ![screenshot](/screenshots/2.png)
 
-__Goal2:__ On click of a button(Get Products), fetch list of products from API and display on screen.
+__Goal2:__ On click of a button(Get Products), fetch list of products from API and display on screen using middleware(redux-saga).
 
 ![screenshot](/screenshots/Final.png)
 
