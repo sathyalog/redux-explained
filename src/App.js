@@ -4,6 +4,7 @@ import './App.css';
 import {Provider} from 'react-redux';
 import store from './store';
 import Checkout from './Checkout';
+import  Products  from './Products';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Fragment>
         <br/>Redux Explained: <br/><br/>
           <Checkout/>
+          <Products/>
       </Fragment>
     </Provider>
   );

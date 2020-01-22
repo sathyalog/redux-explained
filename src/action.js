@@ -21,3 +21,9 @@ export const setTotal = (value) => {
         value 
     }
 }
+
+export const getProducts = () => {
+    return {
+        type: types.GET_PRODUCTS
+    }
+}

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {setPrice, setQuantity, setTotal} from './action';
 import {connect} from 'react-redux';
 
-export class Checkout extends Component {
+class Checkout extends Component {
 
     inputHandler = (e) => {
         const {dispatch} = this.props;

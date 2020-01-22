@@ -28,10 +28,22 @@ function setTotal(state = 0, action) {
     }
 }
 
+function getProducts(state={}, action) {
+    switch(action.type) {
+        case types.GET_PRODUCTS:
+            return { ...state, loading: true };
+        case types.PRODUCTS_RECEIVED:
+            return { ...state, products: action.data, loading: false }
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
     setPrice,
     setQuantity,
-    setTotal
+    setTotal,
+    getProducts
 })
 
 export default reducer
