@@ -17,8 +17,11 @@ class Products extends Component {
         const {products} = this.props;
         
         return (
+            
             <div><br/>
-                <button className="btn btn-primary" style={styles} onClick={(e) => this.productHandler(e)}>Get Products</button><br/><br/>
+                <button className="btn btn-primary" style={styles} onClick={(e) => this.productHandler(e)}>Get Products</button> &nbsp; &nbsp;
+               
+                <br/><br/>
                 
                 <div className="table-responsive">
                     <table className="table">
@@ -42,13 +45,13 @@ class Products extends Component {
                                         <td className="col-2">{item.price}</td>
                                     </tr>
                             </Fragment>   
-                        )
-                    })
+                            )
+                        })
                     
-                }
+                    }
                 </tbody>
-                                </table>
-                            </div>
+                </table>
+            </div>
             </div>
         )
     }
@@ -58,10 +61,5 @@ const mapStateToProps = (state) => ({
     products: state.getProducts.products,
 });
 
-
-
-// const mapDispatchToProps =(dispatch) => ({
-//     getProducts: getProducts,
-// });
 
 export default connect(mapStateToProps)(Products)

@@ -27,3 +27,9 @@ export const getProducts = () => {
         type: types.GET_PRODUCTS
     }
 }
+
+export const getArticles = () => {
+    return {
+        type: types.GET_ARTICLES
+    }
+}

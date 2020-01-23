@@ -32,6 +32,7 @@ __React-Redux Flow with Middleware:__
 5. setprice and setquantity handlers(in components), action & reducer logic added.
 6. update total value in store and render it in the checkout component.
 7. Implementing middleware and enabling sagas to make API calls and display the information from API in Products Component.
+8. Fetching articles from a different API and displayed in Articles component. Used mapDispatchToProps for dispatching actions here.
 
 #### Steps to configure Redux in React application:
 1. `npm i react-redux`
@@ -52,7 +53,7 @@ Now you can see on your redux-devtools-extension where state column is displayed
 13. Similarly, you can save the total value and display total value in checkout component from store.
 14. By using redux saga middleware, we will enable sagas in our application and run with it.
 15. We will fetch product details from saga and pass to Products Component and later display it.
-
+16. Fetching articles from saga and displayed in Articles component.
 
 
 #### Points to Remember
@@ -62,6 +63,14 @@ Now you can see on your redux-devtools-extension where state column is displayed
     - If mapStateToProps argument is specified, the new component will subscribe to Redux store updates. This means that any time the store is updated, mapStateToProps will be called. The results of mapStateToProps must be a plain object, which will be merged into the component’s props.
 
     - With mapDispatchToProps every action creator wrapped into a dispatch call so they may be invoked directly, will be merged into the component’s props.
+    
+    With React Redux, your components never access the store directly - connect does it for you. React Redux gives you two ways to let components dispatch actions:
+
+    - By default, a connected component receives props.dispatch and can dispatch actions itself.
+    - connect can accept an argument called mapDispatchToProps, which lets you create functions that dispatch when called, and pass those functions as props to your component.
+
+    if you define your own mapDispatchToProps, the connected component will no longer receive dispatch. And also you can Pass Down Action Dispatching Logic to ( Unconnected ) Child Components. For more refer this https://react-redux.js.org/using-react-redux/connect-mapdispatch.
+
 
 3. Middleware - Redux middleware solves different problems than Express or Koa middleware, but in a conceptually similar way. It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer. People use Redux middleware for *logging, crash reporting, talking to an asynchronous API, routing,* and more.
 4. Pure Functions(Reducer) - 

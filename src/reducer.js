@@ -39,11 +39,23 @@ function getProducts(state={}, action) {
     }
 }
 
+function getArticles(state={}, action) {
+    switch(action.type) {
+        case types.GET_ARTICLES:
+            return { ...state, loading: true };
+        case types.ARTICLES_RECEIVED:
+            return { ...state, articles: action.data, loading: false }
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
     setPrice,
     setQuantity,
     setTotal,
-    getProducts
+    getProducts,
+    getArticles
 })
 
 export default reducer

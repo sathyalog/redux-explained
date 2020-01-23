@@ -8,8 +8,15 @@ function* fetchProducts() {
     yield put({ type: types.PRODUCTS_RECEIVED, data: data });
 }
 
+function* fetchArticles() {  
+    const data = yield fetch('https://newsapi.org/v1/articles?source=cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc')
+        .then(response => response.json() );      
+    yield put({ type: types.ARTICLES_RECEIVED, data: data.articles });
+}
+
 function* actionWatcher() {
-     yield takeLatest(types.GET_PRODUCTS, fetchProducts)
+     yield takeLatest(types.GET_PRODUCTS, fetchProducts);
+     yield takeLatest(types.GET_ARTICLES, fetchArticles)
 }
 
 export default function* productSaga() {

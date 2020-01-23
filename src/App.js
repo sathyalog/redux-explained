@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import Checkout from './Checkout';
 import  Products  from './Products';
+import Articles from './Articles';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <br/><br/>
           <Checkout/>
           <Products/>
+          <Articles/>
       </Fragment>
     </Provider>
   );
