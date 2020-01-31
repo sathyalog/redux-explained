@@ -17,6 +17,8 @@ __Note:__ Please go through the below steps and match with commits to understand
 #### How to run?
 > npm start
 
+Demo: https://redux-explained-sathyalog.netlify.com/
+
 __React-Redux Flow without Middleware:__
 ![redux-flow](/screenshots/react-redux-flow-state3.png)
 In simple words, once event triggers, we will dispatch an action with value as a payload to action creator from component. From action creator with action type will carry the payload to reducer and where the reducer updates the store. By using mapStateToProps, we will pass the state(store) to component as props and by using props we can render the component.
